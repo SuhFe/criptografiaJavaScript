@@ -1,0 +1,111 @@
+body {
+    font-size: 12px;
+    font-weight: normal;
+    background-color: #E9ECF8;
+    font-family: 'Arima', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navegador {
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    width: 100%;
+     
+}
+
+#aluraLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    left: 40px;
+    top: 13px;
+    
+}
+
+td {
+    text-align: center;
+    position: relative;
+    left: 200px;
+    top: 268px;
+    width: 180px;
+    height: 148px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #0A3871;
+    line-height: 150%;
+
+}
+
+button {
+    border-radius: 15px;
+    color:white;
+    background: #0a3871;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-bottom: 2px;
+    position: absolute;
+    width: 180px;
+    justify-content: space-between;
+    
+    
+}
+
+#alertaSimbolo {
+    display: flex;
+    position: absolute;
+    color: #6E6C6C;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px; 
+    width: 500px;
+    height: 40px;
+    left: 190px;
+    top: 660px;
+    font-size: 14px;
+}
+  
+.limparCampo {
+    color: #0a3871;
+    border: 5px solid #fff;
+    padding: 10px;
+    font-size: 16px;
+    background: #609ed4;
+    border-color: #ffff;
+    color: #0A3871;
+    border-radius: 15px;
+    border-style: solid; 
+    left: 190px;
+    margin-top: 388px;
+    margin-left: 190px;
+
+}
+
+#contato {
+    width: 100%;
+    margin-top:80px;
+    padding-top: 47px;
+    padding-bottom: 25px;
+    padding-left: 36px;
+    padding-right: 40px;
+    font-size: 16px;
+    justify-content: space-between; 
+    color: #0A3871;
+    background-color: #AAB2D5;
+  }
+  
+#contato a {
+    color: #0A3871;
+    text-decoration: none;
+}

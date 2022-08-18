@@ -1,0 +1,175 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9fec1c2b51.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Criptografando</title> 
+</head>
+
+<body>
+    <header>
+        <nav class="navegador">
+            <div id="aluraLogo">
+                <img src="image/alura_logo.png" alt="Logo da Alura">
+            </div>
+        </nav>
+
+    </header>
+        
+                
+        <table>
+            <tr>
+                <td><textarea name="1" id="0" rows="5" onKeyPress="return enter(event, this);"></textarea></td>
+                <td><textarea name="2" id="1" rows="5" onKeyPress="return enter(event, this);"></textarea></td>
+                <td><textarea name="3" id="2" rows="5" onKeyPress="return enter(event, this);"></textarea></td>
+            </tr>
+
+            <tr>
+                <td><button>Digite seu texto, depois precione enter</button></td>
+                <td><button>Criptografia</button></td>
+                <td><button>Descriptografia</button></td>
+            </tr>
+
+        </table>
+
+    <div>
+        <div id="alertaSimbolo">
+            <i class="fa-solid fa-circle-exclamation" alt="ícone de exclamação"></i>
+            <p>&nbsp;Apenas letras minúsculas e sem acento.</p>
+          </div>
+    <br />
+
+    <input class="limparCampo" type="button" value="Limpar Campos" onClick="limpar();"/>
+
+    </div>
+
+    <footer id="contato">
+        <div>
+            <i class="fa-solid fa-envelope" alt="icone de email"></i> 
+                <a href="mailto:su_zana-santos@hotmail.com" target="_blank"><u>su_zana-santos@hotmail.com</u></a>
+        </div>
+            <div>
+                <i class="fa-brands fa-linkedin" alt="Ícone do LinkedIn"></i> 
+                <a href="https://www.linkedin.com/in/suzanaaraújo29" target="_blank">Suzana Araujo</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-github" alt="Ícone do GitHub"></i>
+                    <a href="https://github.com/SuhFe" target="_blank">GitHub</a>
+                </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+  
+    <script language="javascript">
+    function Encripta(frase){
+
+        var frase_criptografada= '';
+        var criptografia = ["enter", "imes", "ai", "ober", "ufat"];
+        var original =     ["e", "i", "a", "o", "u"];
+
+        //Esse for percorre cada letra da frase original
+        for (i=0; i < frase.length; i++){
+            var letra_da_frase = frase.substr(i,1);//pega a letra
+            var posicao_no_array = original.indexOf(letra_da_frase);//procura a posicao do array original
+
+            if (posicao_no_array >= 0){// se a posicao for maior que zero
+                frase_criptografada += criptografia[posicao_no_array]; //concatena na frase criptoografada a criptografia
+            } else {
+                frase_criptografada += letra_da_frase;//se não concatena a propria letra
+            }  
+        }
+
+        document.getElementById("1").value = frase_criptografada;//aplica o valor (frase criptografada) no campo de id 1
+    }
+
+    function Descripta(frase){
+
+        var criptografia = ["enter", "imes", "ai", "ober", "ufat"];
+        var original =     ["e", "i", "a", "o", "u"];
+        var frase_descriptografada = frase;
+        for (i = 0; i <= criptografia.length; i++) {
+            var regex = '';
+            if (frase.indexOf(criptografia[i]) >= 0){
+                switch (criptografia[i]) {
+                    case 'enter':
+                        regex = /enter/g;
+                        break;
+
+                    case 'imes':
+                        regex = /imes/g;
+                        break;
+                    
+                    case 'ai':
+                        regex = /ai/g;
+                        break;
+
+                    case 'ober':
+                        regex = /ober/g;
+                        break;
+                    
+                    case 'ufat':
+                        regex = /ufat/g;
+                        break;
+
+                    default:
+                        regex = '';
+                        break;
+                }
+            
+                frase_descriptografada =  frase_descriptografada.replace(regex, original[i]);
+            }
+            
+        }
+
+        document.getElementById("2").value = frase_descriptografada;
+    }
+
+    function Asc(String){
+        return String.charCodeAt(0);
+    }
+  
+    </script>
+        
+        <script language="javascript">
+    document.getElementById("0").focus();
+    function enter(event, envia){
+        var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+        if (keyCode == 13){
+            var dados=document.getElementById(envia.id);
+            var next=(parseInt(envia.id)+1);
+            if(dados.value.lenght<=0){
+                return false;
+            }else{
+                if (envia.id==0){
+                    Encripta(dados.value);
+                    document.getElementById(next).focus();
+                }else if(envia.id==1){
+                    Descripta(dados.value);
+                    document.getElementById(next).focus();
+                }else{
+                    limpar();
+                }
+                return false;
+            }
+        }else{
+            return true;
+        }
+    }
+    function limpar(){
+        for (var i=0; i<3;i++){
+            document.getElementById(i).value="";
+        }
+        document.getElementById(0).focus();
+    }
+    </script>
+
+</html>
